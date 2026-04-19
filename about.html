@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Harendra</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Consolas, monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+}
+
+header {
+    padding: 15px;
+    border-bottom: 1px solid #30363d;
+}
+
+nav a {
+    color: #8b949e;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #58a6ff;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #58a6ff;
+    font-size: 26px;
+}
+
+/* SECTIONS */
+.section {
+    margin-top: 25px;
+}
+
+.title {
+    font-size: 16px;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* LIST STYLE */
+.line {
+    margin: 6px 0;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    padding-top: 10px;
+    border-top: 1px solid #30363d;
+    font-size: 12px;
+    color: #8b949e;
+}
+/* toogel button */
+/* Toggle Button Style */
+/* Toggle Button Style */
+/* Default Light Theme */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+/* Dark Theme */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* Toggle Button Style */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;   /* bar की चौड़ाई */
+  height: 50px;   /* bar की ऊँचाई */
+  border-radius: 25px; /* गोल बार */
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+
+.theme-toggle img {
+  width: 60px;   /* 👈 size बड़ा किया */
+  height: 60px;
+  transition: transform 0.2s ease; /* smooth sliding/rotation */
+}
+
+/* Click पर हल्की animation */
+.theme-toggle img:active {
+  transform: translateX(-10px) rotate(180deg);
+}
+/* TRANSATION */
+#nameTitle {
+  font-size: 30px;
+  font-weight: bold;
+  text-align:left;
+  margin-top: 30px;
+  transition: color 0.15s ease;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" style="color: #0d1117;"><b>Home</b></a>
+        <a href="about.html" style="color: #2bd222;"><b>About_Me</b></a>
+        <a href="contact.html" style="color: #729fff;"><b>Contact</b></a>
+        <a href="cyber.html" style="color: #cf1313;"><b>CyberAwareness_Tips</b></a>
+    </nav>
+</header>
+
+<div class="container">
+
+<h1 id="nameTitle">About_Me()</h1>
+
+<!-- BASIC INFO -->
+<div class="section">
+    <div class="title">WHOAMI!</div>
+    <div class="line">> Name: Harendra Singh</div>
+    <div class="line">> Role: Cybersecurity Learner</div>
+    <div class="line">> Focus: Website & Application security</div>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+    <div class="title">SKILLS</div>
+    <div class="line">> Networking Basics</div>
+    <div class="line">> Web Vulnerabilities (idor, crlf, auth bypass)</div>
+    <div class="line">> Linux / Kali Linux</div>
+    <div class="line">> Bug Hunting</div>
+    <div class="line">> Web & App Pentester</div>
+</div>
+
+<!-- LEARNING -->
+<div class="section">
+    <div class="title">CURRENTLY_LEARNING</div>
+    <div class="line">> Api Security</div>
+    <div class="line">> Advanced Web Attacks</div>
+    <div class="line">> Real-world Bug Bounty Techniques</div>
+</div>
+
+<!-- GOAL -->
+<div class="section">
+    <div class="title">GOAL</div>
+    <div class="line">> Become A Professional CyberSecurity Researcher & Pentester</div>
+</div>
+<!-- Toogle button -->
+<button class="theme-toggle" id="toggleBtn">
+  <img src="sun.png" alt="Light Mode" id="toggleIcon">
+</button>
+
+<script>
+  const toggleBtn = document.getElementById('toggleBtn');
+  const toggleIcon = document.getElementById('toggleIcon');
+  const body = document.body;
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+      toggleIcon.src = "moon.png";
+      toggleIcon.alt = "Dark Mode";
+    } else {
+      toggleIcon.src = "sun.png";
+      toggleIcon.alt = "Light Mode";
+    }
+  });
+</script>
+<script>
+  const fullName = "About_Me()";
+  const nameTitle = document.getElementById("nameTitle");
+
+  function animateName() {
+    // Step 1: Show full name
+    nameTitle.textContent = fullName;
+    nameTitle.style.color = "cyan";
+
+    // Step 2: Remove full name letter by letter
+    let i = fullName.length;
+
+    let interval = setInterval(() => {
+      nameTitle.textContent = fullName.substring(0, i);
+      i--;
+
+      // जब पूरा नाम हट जाए (i == 0 पर empty string मिल जाएगी)
+      if (i < 1) {
+        clearInterval(interval);
+
+        // थोड़ी देर बाद फिर से पूरा नाम दिखाओ
+        setTimeout(() => {
+          nameTitle.textContent = fullName;
+          nameTitle.style.color = "orange";
+        }, 1000);
+      }
+    }, 400); // हर 0.4 सेकंड में एक letter हटेगा
+  }
+
+  // हर cycle repeat करने के लिए सिर्फ़ एक interval रखो
+  setInterval(animateName, 5000);
+
+  // पहला run तुरंत
+  animateName();
+</script>
+
+
+<footer>
+   <p><b>© 2026 Harendra singh</b></p>
+</footer>
+
+</div>
+
+</body>
+</html>
